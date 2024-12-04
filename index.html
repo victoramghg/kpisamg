@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte Ejecutivo de KPI's</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">Reporte Ejecutivo de KPI's por Área</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>División</th>
+                <th>Departamento</th>
+                <th>KPI Principal</th>
+                <th>Métrica</th>
+                <th>Objetivo</th>
+            </tr>
+        </thead>
+        <tbody id="kpiTable">
+        </tbody>
+    </table>
+
+    <script>
+        const data = [
+            { division: "RH", department: "Reclutamiento y Onboarding", kpi: "Tiempo de cobertura de vacantes", metric: "Días", goal: "<30 días" },
+            { division: "RH", department: "Administración de Personal", kpi: "Tasa de rotación mensual", metric: "Porcentaje", goal: "<15%" },
+            { division: "RH", department: "Cultura", kpi: "Índice de satisfacción interna", metric: "Índice (0-10)", goal: ">8" },
+            { division: "Marketing y Comercial", department: "Marketing y Contenido", kpi: "Engagement en redes", metric: "Porcentaje", goal: ">50%" },
+            { division: "Marketing y Comercial", department: "Ventas Generales", kpi: "Conversión de leads", metric: "Porcentaje", goal: ">20%" },
+            { division: "Marketing y Comercial", department: "Ventas de Eventos", kpi: "Número de eventos vendidos", metric: "Número", goal: ">10 por mes" },
+            { division: "Marketing y Comercial", department: "Ventas por Delivery", kpi: "Órdenes completadas en apps", metric: "Número", goal: ">90%" },
+            { division: "Finanzas", department: "Ingresos", kpi: "Ingresos totales", metric: "Pesos", goal: ">1M MXN" },
+            { division: "Finanzas", department: "Egresos", kpi: "Control de gastos", metric: "Pesos", goal: "<900K MXN" },
+            { division: "Finanzas", department: "Contabilidad", kpi: "Cierre contable a tiempo", metric: "Días", goal: "<10 días" },
+            { division: "CDP", department: "Planeación", kpi: "Exactitud en inventarios", metric: "Porcentaje", goal: ">98%" },
+            { division: "CDP", department: "Almacén", kpi: "Rotación de inventarios", metric: "Porcentaje", goal: ">85%" },
+            { division: "CDP", department: "Producción", kpi: "Producción cumplida vs demanda", metric: "Porcentaje", goal: ">95%" },
+            { division: "CDP", department: "Logística", kpi: "Tiempo de entrega", metric: "Horas", goal: "<24 horas" },
+            { division: "Dark Kitchens y Locales", department: "Gestión Dark Kitchens", kpi: "Tasa de utilización de cocinas", metric: "Porcentaje", goal: ">85%" },
+            { division: "Dark Kitchens y Locales", department: "Gestión Locales", kpi: "Ventas por local", metric: "Pesos", goal: ">500K MXN" },
+            { division: "Calidad", department: "Inspecciones", kpi: "Porcentaje de inspecciones aprobadas", metric: "Porcentaje", goal: ">90%" },
+            { division: "Calidad", department: "Capacitaciones", kpi: "Horas de capacitación impartidas", metric: "Horas", goal: ">20 horas por mes" },
+            { division: "Calidad", department: "Correcciones", kpi: "Correcciones aplicadas a tiempo", metric: "Porcentaje", goal: ">95%" },
+            { division: "Eventos", department: "Ventas en Eventos y Festivales", kpi: "Ingresos por evento", metric: "Pesos", goal: ">100K MXN" }
+        ];
+
+        const tableBody = document.getElementById('kpiTable');
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            for (const key in row) {
+                const td = document.createElement('td');
+                td.textContent = row[key];
+                tr.appendChild(td);
+            }
+            tableBody.appendChild(tr);
+        });
+    </script>
+</body>
+</html>
